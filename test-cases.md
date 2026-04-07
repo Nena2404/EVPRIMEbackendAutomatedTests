@@ -4,10 +4,10 @@ EVPrime USERS Test cases
 SIGNUP
 
 Test case 1: successful signup, 201 Created
--user is on the http://localhost:8080/users/signup
--user enters "emailValue1@provider.com" in the email field
--user enters  "passwordvalue1" in the password field
--user clicks the signup button
+- user is on the http://localhost:8080/users/signup
+- user enters "emailValue1@provider.com" in the email field
+- user enters  "passwordvalue1" in the password field
+- user clicks the signup button
 Expected result: "message": "User created.",
     "user": {
         "id": "2e1e4cef-dc34-408c-8f1a-f00217b7d4d6",
@@ -17,10 +17,10 @@ Expected result: "message": "User created.",
 }
 
  Test case 2: unsuccessful signup, 422 Unprocessable Entity
--user is on the http://localhost:8080/users/signup
--user enters "emailValue1provider.com" in the email field
--user enters  "passwordvalue1" in the password field
--user clicks the signup button
+- user is on the http://localhost:8080/users/signup
+- user enters "emailValue1provider.com" in the email field
+- user enters  "passwordvalue1" in the password field
+-  user clicks the signup button
 Expected result: "message": "User signup failed due to validation errors.",
     "errors": {
         "email": "Invalid email."
@@ -28,10 +28,10 @@ Expected result: "message": "User signup failed due to validation errors.",
 
  Test case 3: unsuccessful signup, 422 Unprocessable Entity
 Precondition: user with this email is already registered
--user is on the http://localhost:8080/users/signup
--user enters "emailValue1@provider.com" in the email field
--user enters  "passwordvalue1" in the password field
--user clicks the signup button
+- user is on the http://localhost:8080/users/signup
+- user enters "emailValue1@provider.com" in the email field
+- user enters  "passwordvalue1" in the password field
+- user clicks the signup button
 Expected result:  "message": "User signup failed due to validation errors.",
     "errors": {
         "email": "Email exists already."
@@ -40,20 +40,20 @@ Expected result:  "message": "User signup failed due to validation errors.",
 LOGIN
 Test case 1: successful login, 200 OK
 Precondition: user is already signed up
--user is on the localhost:8080/login
--user enters "emailValue1@provider.com" in the email field
--user enters "passwordvalue1" in the password field
--user clicks the login button
+- user is on the localhost:8080/login
+- user enters "emailValue1@provider.com" in the email field
+- user enters "passwordvalue1" in the password field
+- user clicks the login button
 Expected result: "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVtYWlsVmFsdWUxQHByb3ZpZGVyLmNvbSIsImlhdCI6MTc2ODUyNzU1MywiZXhwIjoxNzY4NTMxMTUzfQ.2iy7uqz7EqPJf9s3_r3AMj3j3DDWjFTS0nkOzmSRer0",
     "expirationTime": "2026-01-16T02:39:13.887Z"
 }
 
 Test case 2: unsuccessful login, 422 Unprocessable Entity
 Precondition: user is already signed up
--user is on the  http://localhost:8080/login
--user enters "emailValue1provider.com" in the email field
--user enters "passwordvalue11" in the password field
--user clicks the login button
+- user is on the  http://localhost:8080/login
+- user enters "emailValue1provider.com" in the email field
+- user enters "passwordvalue11" in the password field
+- user clicks the login button
 
 Expected result:  "message": "Invalid credentials.",
     "errors": {
@@ -63,10 +63,10 @@ Expected result:  "message": "Invalid credentials.",
 
 Test case 3: unsuccessful login, 422 Unprocessable Entity
 Precondition: user is already signed up
--user is on the  http://localhost:8080/login
--user enters "emailValue1@provider.com" in the email field
--user enters "passwordvalue11" in the password field
--user clicks the login button
+- user is on the  http://localhost:8080/login
+- user enters "emailValue1@provider.com" in the email field
+- user enters "passwordvalue11" in the password field
+- user clicks the login button
 Expected result:
     "message": "Invalid credentials.",
     "errors": {
@@ -74,10 +74,10 @@ Expected result:
     }
 
 Test case 4: unsuccessful login, 401 Unauthorized
--user is not signed up
--user enters "emailValue1@gmail.com" in the email field
--user enters "passwordvalue" in the password field
--user clicks the login button
+- user is not signed up
+- user enters "emailValue1@gmail.com" in the email field
+- user enters "passwordvalue" in the password field
+- user clicks the login button
 Expected result:
 
 {
@@ -86,10 +86,10 @@ Expected result:
     	
 Test case 5:  unsuccessful login, 401 Unauthorized
 Precondition: user is already signed up
--user is on the  http://localhost:8080/login
--user enters "emailValue1@provider.com" in the email field
--user leaves empty password field
--user clicks the login button
+- user is on the  http://localhost:8080/login
+- user enters "emailValue1@provider.com" in the email field
+- user leaves empty password field
+- user clicks the login button
 Expected result:
 {
     "message": "Authentication failed."
@@ -98,10 +98,10 @@ Expected result:
 
 Test case 6:  unsuccessful login, 401 Unauthorized
 Precondition: user is already signed up
--user is on the  http://localhost:8080/login
--user leaves empty email field
--user enters "passwordvalue" in the password field
--user clicks the login button
+- user is on the  http://localhost:8080/login
+- user leaves empty email field
+- user enters "passwordvalue" in the password field
+- user clicks the login button
 Expected result:
 {
     "message": "Authentication failed."
